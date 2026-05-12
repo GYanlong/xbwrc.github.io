@@ -539,7 +539,23 @@
       background: linear-gradient(180deg, var(--purple), var(--pink));
       opacity: 0.5;
     }
-    .org-branches-wrap { overflow-x: auto; padding: 0 4px 6px; scrollbar-width: thin; }
+    .org-branches-wrap {
+      overflow-x: auto; padding: 0 4px 6px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .org-branches-wrap::-webkit-scrollbar {
+      height: 6px;
+    }
+    .org-branches-wrap::-webkit-scrollbar-track {
+      background: rgba(168,85,247,0.06); border-radius: 3px;
+    }
+    .org-branches-wrap::-webkit-scrollbar-thumb {
+      background: rgba(168,85,247,0.3); border-radius: 3px;
+    }
+    .org-branches-wrap::-webkit-scrollbar-thumb:hover {
+      background: rgba(168,85,247,0.5);
+    }
     .org-branches {
       display: flex;
       gap: 20px;
@@ -784,7 +800,7 @@
       .timeline { columns: 1; padding-left: 24px; }
       .timeline-item::before { left: -20px; }
       /* 组织架构树形 · 移动端：单列纵向 + 左侧竖向主干 */
-      .org-branches-wrap { overflow-x: visible; }
+      .org-branches-wrap { overflow-x: visible; -webkit-overflow-scrolling: touch; }
       .org-branches {
         flex-direction: column;
         gap: 18px;
@@ -1034,7 +1050,7 @@
         </div>
       </div>
 
-      <div class="info-card info-card-wide reveal reveal-d4">
+      <div class="info-card info-card-wide reveal reveal-d4" style="overflow:visible;">
         <div class="info-card-body">
           <div class="info-card-title">组织架构</div>
           <div class="info-card-desc">
